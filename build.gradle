@@ -22,28 +22,27 @@ repositories {
 	maven { url 'https://repository.mercadopago.com/release' }
 }
 
-
 dependencies {
-	//JPA
+	// JPA
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
-	//SPRING WEB
+	// SPRING WEB
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
-	//LOMBOK
+	// LOMBOK
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 
-	//H2 DATABASE
+	// H2 DATABASE
 	runtimeOnly 'com.h2database:h2'
 
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	//MAPSTRUCT
-	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
 
+	// MAPSTRUCT
+	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
 	annotationProcessor 'org.projectlombok:lombok', 'org.mapstruct:mapstruct-processor:1.5.5.Final'
 
-	//OPEN API
+	// OPEN API
 	implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.1.0'
 
 	// JACKSON DATATYPE JSR310
@@ -60,11 +59,13 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-
+// Asegurarse de que la tarea jar esté habilitada
 tasks.jar {
 	enabled = true
 }
 
+// Asegurarse de que la tarea bootJar esté habilitada y configurada para generar el JAR ejecutable
 bootJar {
-	enabled = true
+	archiveFileName = 'buensaboruno-0.0.1-SNAPSHOT.jar'
 }
+
